@@ -9,9 +9,6 @@ from lime.lime_tabular import LimeTabularExplainer
 # Load the new model
 model = joblib.load('RF.pkl')
 
-# Load the test data from X_test.csv to create LIME explainer
-X_test = pd.read_csv('X_test.csv')
-
 # Define feature names from the new dataset
 feature_names = [
     "Age", "BMI", "AST", "GFR", "HDL-C", "FBG", "MAP"
@@ -99,4 +96,5 @@ if st.button("Predict"):
 
     # Display the LIME explanation without the feature value table
     lime_html = lime_exp.as_html(show_table=False)  # Disable feature value table
+
     st.components.v1.html(lime_html, height=800, scrolling=True)
