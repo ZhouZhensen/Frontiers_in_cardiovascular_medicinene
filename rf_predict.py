@@ -14,6 +14,10 @@ feature_names = [
     "Age", "BMI", "AST", "GFR", "HDL-C", "FBG", "MAP"
 ]
 
+# Load the test data from X_test.csv to create LIME explainer
+X_test = pd.read_csv('X_test.csv')
+
+
 # Streamlit user interface
 st.title("Risk of Aortic Stiffening")
 
@@ -98,3 +102,4 @@ if st.button("Predict"):
     lime_html = lime_exp.as_html(show_table=False)  # Disable feature value table
 
     st.components.v1.html(lime_html, height=800, scrolling=True)
+
